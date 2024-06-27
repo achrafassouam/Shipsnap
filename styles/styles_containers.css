@@ -1,0 +1,85 @@
+body {
+	background-color:white;
+	font-size: 16px;
+	margin: 0;
+    padding: 0;
+}   
+
+.header {
+    height: 80px;
+    background-color: white;
+	display: flex;
+    align-items: center;
+	margin-bottom: 10px;
+}
+
+.logo {
+	width: 200px;
+	margin-left: 10%;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 90px);
+}
+
+.search_box {
+	width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+
+.tracking {
+    width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.search_input {
+	border: none;
+	height: 40px;
+	padding: 0 15px;
+	box-sizing: border-box;
+	flex: 1;
+}
+
+.search_button {
+    height: 40px;
+    position: relative;
+    border: none;
+    background-color: rgb(59, 134, 247);
+    color: white;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search_button::before {
+    content: "\f002";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.search_button:hover {
+	background-color: rgb(84, 145, 237)
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.item {
+    margin-top: 3%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.container-number,
+.shipping-company,
+.eta {
+    margin-bottom: 5px;
+}

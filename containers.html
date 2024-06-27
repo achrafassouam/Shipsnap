@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ShipSnap - Container Tracking</title>
+	<link rel="stylesheet" href="styles/styles_containers.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+	<div class="header">
+        <img src="images/logo.png" alt="Logo" class="logo" onclick="window.location.href='index.html'">
+	</div>
+
+	<div class="container">
+		<div class="tracking">
+			<div class="search_box">
+				<input type="text" placeholder="Container, Booking..." class="search_input">
+				<button class="search_button"></button>
+			</div>
+			<div id="item-list"></div>
+		</div>
+	
+		<div id="map">
+			<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+			<script src="scripts/map.js"></script>
+		</div>
+
+	</div>	
+	
+   
+	<script src="scripts/script.js"></script>
+</body>
+</html>

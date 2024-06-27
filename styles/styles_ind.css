@@ -1,0 +1,33 @@
+.title h1 {
+    font-family: 'Montserrat', sans-serif;
+	color: rgb(87, 87, 87);
+	font-size: 3.5em;
+	text-align: center;
+	font-weight: bold;
+} 
+
+.title h2 {
+    font-family: 'Montserrat', sans-serif;
+	color: rgb(87, 87, 87);
+	font-size: 2.5em;
+	text-align: center;
+	font-weight: bold;
+} 
+
+.title {
+	width: fit-content;
+	margin: 10% auto;
+}
+
+.buttons {
+	width: fit-content;
+	margin: 10% auto;
+	display: flex;
+	gap : 20px;
+}
+
+.btn {
+	font-size: 1.8rem;
+	padding : 15px 30px;
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
