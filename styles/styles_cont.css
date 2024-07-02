@@ -37,3 +37,38 @@
     margin: 0;
     padding: 0;
 }
+
+.search_box {
+    width: calc(100% - 40px); /* Subtract the desired margin from 100% */
+    margin: 0 20px; /* Add the desired margin on the right and left sides */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.search_input {
+    border: none;
+    height: 40px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.search_button {
+    height: 40px;
+    border: none;
+    background-color: transparent;
+    color: #3b86f7;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_button:hover {
+    color: #5491ed;
+}

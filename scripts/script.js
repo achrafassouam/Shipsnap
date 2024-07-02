@@ -59,6 +59,7 @@ function renderContainerDetails(data) {
         const destination = data.locations.find(location => location.type === 'DESTINATION');
 
         metadataDiv.innerHTML = `
+            <h2>Container Details</h2>
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Metadata</h3>
