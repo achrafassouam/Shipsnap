@@ -100,7 +100,7 @@ function renderContainerDetails(data) {
             </div>
             <div class="card-body">
                 <ul class="list-group">
-                    ${events.map(event => `<li class="list-group-item">${event.description} - ${event.date}</li>`).join('')}
+                    ${events.map(event => `<li class="list-group-item">${event.description} - ${new Date(event.date).toISOString().split('T')[0]}</li>`).join('')}
                 </ul>
             </div>
         </div>
