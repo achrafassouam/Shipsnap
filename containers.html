@@ -2,37 +2,54 @@
 <html>
 <head>
     <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>ShipSnap - Container Tracking</title>
-	<link rel="stylesheet" href="styles/styles_containers.css">
-    <link rel="icon" href="images/icon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-	<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Tracking</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/styles_cont.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 
-	<div class="header">
-        <img src="images/logo.png" alt="Logo" class="logo" onclick="window.location.href='index.html'">
-	</div>
+    <!-- header -->
+    <div class="header">
+        <img src="images/logo.png" alt="logo">
+    </div>
 
-	<div class="container">
-		<div class="tracking">
-			<div class="search_box">
-				<input type="text" placeholder="Container, Booking..." class="search_input">
-				<button class="search_button"></button>
-			</div>
-			<div id="item-list"></div>
-		</div>
-	
-		<div id="map">
-			<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-			<script src="scripts/map.js"></script>
-		</div>
+    <!-- input -->
+    <div class="containers">
+        <div class="left-section">
+            <div id="container-input">
+                <label for="containerNumber">Container Number:</label>
+                <input type="text" id="containerNumber" placeholder="Enter container number">
+                <button id="trackButton">Track</button>
+            </div>
+            <div id="container-details">
+                <h2>Container Details</h2>
+                <div id="metadata"></div>
+                <div id="locations"></div>
+                <div id="events"></div>
+            </div>
+            <script>
+                // Load the script.js file dynamically
+                fetch('scripts/script.js')
+                    .then(response => response.text())
+                    .then(scriptText => {
+                        const script = document.createElement('script');
+                        script.textContent = scriptText;
+                        document.body.appendChild(script);
+                    })
+                    .catch(error => {
+                        console.error('Error loading script.js:', error);
+                    });
+            </script>
+        </div>
+        
+        <!-- Map -->
+        <div class="right-section" id="map"></div>
+    </div>
 
-	</div>	
-	
-   
-	<script src="scripts/script.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>

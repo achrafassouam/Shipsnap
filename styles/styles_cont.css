@@ -1,0 +1,39 @@
+.header img {
+    width: 200px;
+    height: auto;
+}
+
+.header {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containers {
+    display: flex;
+}
+
+.left-section {
+    flex: 1;
+}
+
+#container-input {
+    margin-bottom: 20px;
+}
+
+#container-input * {
+    color: 10px;
+}
+
+.right-section {
+    flex: 2;
+}
+
+
+#map {
+    height: 92vh; /* or any desired height */
+    width: 100vw; /* or any desired width */
+    margin: 0;
+    padding: 0;
+}
