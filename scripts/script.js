@@ -44,22 +44,18 @@ async function fetchContainerData(shipmentNumber, sealine, shipmentType) {
 
 // Function to render the container details
 function renderContainerDetails(data) {
-    const metadataDiv = document.getElementById('metadata');
-    const locationsDiv = document.getElementById('locations');
-    const eventsDiv = document.getElementById('events');
+    const containerDetailsDiv = document.getElementById('containerDetails');
+    containerDetailsDiv.innerHTML = '';
 
-    // Clear previous content
-    metadataDiv.innerHTML = '';
-    locationsDiv.innerHTML = '';
-    eventsDiv.innerHTML = '';
-
-    // Check if metadata exists
     if (data.metadata) {
         const metadata = data.metadata;
         const destination = data.locations.find(location => location.type === 'DESTINATION');
 
-        metadataDiv.innerHTML = `
-            <h2>Container Details</h2>
+        const metadataHTML = `
+            <div class="expand-and-remove">
+              <button id="expandButton" class="btn btn-primary">Expand</button>
+              <button id="removeButton" class="btn btn-danger">Remove</button>
+            </div>
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Metadata</h3>
@@ -71,40 +67,54 @@ function renderContainerDetails(data) {
                     ${destination ? `<p class="card-text"><strong>Destination:</strong> ${destination.name}, ${destination.country}</p>` : ''}
                 </div>
             </div>
+            <div id="extraDetails" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Locations</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            ${data.locations.map(location => `<li class="list-group-item">${location.name}, ${location.country}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Events</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            ${(data.containers && data.containers.length > 0 ? data.containers[0].events : []).map(event => `<li class="list-group-item">${event.description} - ${new Date(event.date).toISOString().split('T')[0]}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         `;
+
+        containerDetailsDiv.innerHTML = metadataHTML;
+
+        const expandButton = document.getElementById('expandButton');
+        const removeButton = document.getElementById('removeButton');
+        const extraDetails = document.getElementById('extraDetails');
+        let isExpanded = false;
+
+        expandButton.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+                extraDetails.style.display = 'block';
+                expandButton.textContent = 'Retract';
+            } else {
+                extraDetails.style.display = 'none';
+                expandButton.textContent = 'Expand';
+            }
+        });
+
+        removeButton.addEventListener('click', () => {
+            containerDetailsDiv.innerHTML = '';
+        });
     } else {
-        metadataDiv.innerHTML = '<div class="card"><div class="card-body"><h3 class="card-title">Metadata</h3><p class="card-text">No metadata available</p></div></div>';
+        containerDetailsDiv.innerHTML = '<div class="card"><div class="card-body"><h3 class="card-title">Metadata</h3><p class="card-text">No metadata available</p></div></div>';
     }
-
-    // Render locations
-    const locations = data.locations;
-    locationsDiv.innerHTML = `
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Locations</h3>
-            </div>
-            <div class="card-body">
-                <ul class="list-group">
-                    ${locations.map(location => `<li class="list-group-item">${location.name}, ${location.country}</li>`).join('')}
-                </ul>
-            </div>
-        </div>
-    `;
-
-    // Render events
-    const events = data.containers && data.containers.length > 0 ? data.containers[0].events : [];
-    eventsDiv.innerHTML = `
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Events</h3>
-            </div>
-            <div class="card-body">
-                <ul class="list-group">
-                    ${events.map(event => `<li class="list-group-item">${event.description} - ${new Date(event.date).toISOString().split('T')[0]}</li>`).join('')}
-                </ul>
-            </div>
-        </div>
-    `;
 }
 
 // Function to initialize the map
@@ -154,7 +164,7 @@ const trackButton = document.getElementById('trackButton');
 trackButton.addEventListener('click', () => {
     const containerNumber = document.getElementById('containerNumber').value;
     const sealine = detectShippingLine(containerNumber);
-    const shipmentType = 'CT'; // Replace with the appropriate shipment type value
+    const shipmentType = 'CT';
 
     if (containerNumber && sealine) {
         fetchContainerData(containerNumber, sealine, shipmentType)

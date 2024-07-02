@@ -72,3 +72,56 @@
 .search_button:hover {
     color: #5491ed;
 }
+
+.expand-and-remove {
+    margin-bottom: 10px;
+}
+
+/* Add these styles in your CSS file */
+.container-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.container-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.container-info > div {
+    margin-right: 20px;
+}
+
+.container-info > div p {
+    margin: 0;
+}
+
+#toggleDetailsButton {
+    align-self: flex-start;
+}
+
+#extraDetails {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
