@@ -23,7 +23,8 @@
 }
 
 #container-input * {
-    color: 10px;
+    border-radius: 20px;
+    border-style: none;
 }
 
 .right-section {
@@ -32,10 +33,13 @@
 
 
 #map {
-    height: 92vh; /* or any desired height */
+    height: 88vh; /* or any desired height */
     width: 100vw; /* or any desired width */
-    margin: 0;
+    margin: 0 25px 10px 10px;
+    border-color: white;
+    border-style: solid;
     padding: 0;
+    border-radius: 20px;
 }
 
 .search_box {
@@ -60,13 +64,15 @@
     height: 40px;
     border: none;
     background-color: transparent;
-    color: #3b86f7;
+    color: #408bf4;
     padding: 0 15px;
+    margin-left: 5px;
     cursor: pointer;
     font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(245, 249, 250);
 }
 
 .search_button:hover {
@@ -75,17 +81,6 @@
 
 .expand-and-remove {
     margin-bottom: 10px;
-}
-
-/* Add these styles in your CSS file */
-.container-summary {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
 }
 
 .container-info {
@@ -122,6 +117,22 @@
     text-align: left;
 }
 
-.table th {
-    background-color: #f2f2f2;
+.card-title {
+    border-radius: 50%;
+}
+
+.card {
+    margin-right: 10px;
+    border-radius: 2.25rem !important;
+}
+
+#containerDetails {
+    margin-left: 20px;
+}
+
+.api-limit-notice {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 1rem 1rem 1rem;
+
 }

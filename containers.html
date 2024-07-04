@@ -14,21 +14,34 @@
 <body>
 
     <!-- header -->
-    <div class="header">
-        <img src="images/logo.png" alt="logo">
-    </div>
+    <header>
+		<img class="logo" src="images/logo.png" alt="logo">
+		<nav>
+			<ul class="nav-links">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="containers.html">Tracking</a></li>
+				<li><a href="aboutus.html">About US</a></li>
+			</ul>
+		</nav>
+		<a class="log" href="login.html"><button>Login</button></a>
+	</header>
 
     <!-- input -->
     <div class="containers">
         <div class="left-section">
             <div id="container-input">
                 <div class="search_box">
-                    <input type="text" id="containerNumber" placeholder="Enter container number" class="search_input">
+                    <input type="text" id="containerNumber" placeholder="Enter container number..." class="search_input">
                     <button type="button" id="trackButton" class="search_button">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-                
+                <p class="api-limit-notice">Due to the limits of the API I'm using, you can only try it with these two container numbers:
+                    <br>
+                    <strong>MEDU7152456</strong>
+                    <br>
+                    <strong>MEDU6686837</strong>
+                </p>
             </div>
             <div id="container-details">
                 <div id="metadata"></div>

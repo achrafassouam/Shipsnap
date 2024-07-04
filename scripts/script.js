@@ -61,7 +61,7 @@ function renderContainerDetails(data) {
                     <h3 class="card-title">Metadata</h3>
                 </div>
                 <div class="card-body">
-                    <p class="card-text"><strong>Shipment Number:</strong> ${metadata.shipmentNumber}</p>
+                    <p class="card-text"><strong>Container Number:</strong> ${metadata.shipmentNumber}</p>
                     <p class="card-text"><strong>Sealine:</strong> ${metadata.sealine}</p>
                     <p class="card-text"><strong>Shipping Status:</strong> ${metadata.shippingStatus}</p>
                     ${destination ? `<p class="card-text"><strong>Destination:</strong> ${destination.name}, ${destination.country}</p>` : ''}
@@ -74,17 +74,18 @@ function renderContainerDetails(data) {
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            ${data.locations.map(location => `<li class="list-group-item">${location.name}, ${location.country}</li>`).join('')}
+                            ${data.locations.map(location => `<p class="card-text">${location.name}, ${location.country}</p>`).join('')}
                         </ul>
                     </div>
                 </div>
+                <br>
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Events</h3>
                     </div>
                     <div class="card-body">
                         <ul class="list-group">
-                            ${(data.containers && data.containers.length > 0 ? data.containers[0].events : []).map(event => `<li class="list-group-item">${event.description} - ${new Date(event.date).toISOString().split('T')[0]}</li>`).join('')}
+                            ${(data.containers && data.containers.length > 0 ? data.containers[0].events : []).map(event => `<p class="card-text">${event.description} - ${new Date(event.date).toISOString().split('T')[0]}</p>`).join('')}
                         </ul>
                     </div>
                 </div>

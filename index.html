@@ -13,15 +13,32 @@
 </head>
 <body>
 
-	<h1 class="h1">Container Tracking</h1>
+	<header style="position: fixed; top: 0; left: 0; width: 100%; background-color: #87CEEB; z-index: 1000;">
+		<img class="logo" src="images/logo.png" alt="logo">
+		<nav>
+			<ul class="nav-links">
+				<li><a href="/index.html">Home</a></li>
+				<li><a href="/containers.html">Tracking</a></li>
+				<li><a href="/aboutus.html">About US</a></li>
+			</ul>
+		</nav>
+		<a class="log" href="/login.html"><button>Login</button></a>
+	</header>
+
+	<div class="background-image">
+		<img src="images/background1.png" alt="Background Image">
+	</div>
+	
+	<h1 class="h1">ShipSnap</h1>
 	
 	<h2 class="h2">The new way to work</h2>
-	<p>Lets you securely manage, share and access your shipping documents from anywhere</p>
+	<p>Lets you securely manage, share and access your shipping details from anywhere</p>
 
 	<div class="buttons-1">
-		<button type="button" class="btn btn-primary" data-mdb-ripple-init onclick="window.location.href='containers.html'">Try it</button>
+		<button type="button" class="try-it" data-mdb-ripple-init onclick="window.location.href='containers.html'">Try it</button>
 		<!-- <button type="button" class="btn btn-secondary" data-mdb-ripple-init>Request demo</button> -->
 	</div>
+
 
 	<section class="features">
 		<ul>
@@ -49,6 +66,8 @@
 		</ul>
 	</section>
 
+
+
 	<section class="example">
 		<img src="images/one-tracking-system.png" alt="website-example">
 		<div class="example-text">
@@ -60,17 +79,16 @@
 		</div>
 	</section>
 
-	<section class="info1">
-		<img src="images/for-logistics-service-2.webp" alt="info1-img">
-		<div class="info1-text">
-			<h2>For logistics service providers</h2>
-			<p>Our Multi-Tracking system isn't just a convenient tool to satisfy curiosity - it's a customer retention device.
-				If container tracking is installed on your website, your customers will no longer visit your competitors' sites
-				or shipping lines sites, which could be even worse for you. Container Tracking significantly increases customer
-				return rate, which will affect your site traffic. Your company's website will adapt to the modern digital era
-				and transform your organisation into a digital enterprise</p>
-		</div>
+	<section class="example2">
+		<div class="example-text2">
+			<h2>How does it work ?</h2>
+			<p>The container tracking API allows users to track shipping containers across various carriers and ports
+				by making authenticated requests using an API key. Users send requests to specific endpoints with necessary parameters
+				(e.g., container number), and the API returns structured data, typically in JSON format, detailing the container's current status,
+				location, and other relevant information..</p>
 
+		</div>
+		<img src="images/sinay-API.png" alt="website-example">
 	</section>
 
 
